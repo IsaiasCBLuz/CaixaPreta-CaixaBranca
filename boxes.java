@@ -8,7 +8,7 @@ public class NumberSorter {
         Random random = new Random();
         
         // Gerando 100 números aleatórios
-        for (int i = 0; i <= 100; i++) { // Erro: o índice deve ir até 99, não 100
+        for (int i = 0; i < 100; i++) { // Correção: o índice vai de 0 a 99
             numbers[i] = random.nextInt(1000); // Gera números aleatórios de 0 a 999
             System.out.println("Número sorteado: " + numbers[i]);
         }
@@ -37,9 +37,9 @@ public class NumberSorter {
     // Função de busca binária
     public static int binarySearch(int[] array, int value) {
         int left = 0;
-        int right = array.length;
+        int right = array.length - 1; // Correção: O valor inicial de right deve ser o último índice do array
         
-        while (left < right) { // Erro: Deve ser 'left <= right'
+        while (left <= right) { // Correção: Deve ser 'left <= right' para incluir todos os elementos
             int mid = (left + right) / 2;
             
             if (array[mid] == value) {
